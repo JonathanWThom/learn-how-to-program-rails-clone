@@ -1,1 +1,11 @@
-<%= @lesson.name %>
+<% content_for(:navbar) do %>
+  <li><%= link_to "Courses", lessons_path %></li>
+  <li><%= link_to "Previous", lesson_path((@lesson.number - 1))%></li>
+  <li><%= link_to "Next", lesson_path((@lesson.number - 1))%></li>
+<% end %>
+<h1><%= @lesson.name %></h1>
+
+<h5><%= @lesson.content %></h5>
+
+
+<p><%= link_to "Return to Lessons", lessons_path %></p>
