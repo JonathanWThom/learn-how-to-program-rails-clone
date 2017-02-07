@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :weeks do
+  resources :weeks, :except => [:index, :new, :edit, :show, :update, :create, :destroy] do
     resources :lessons
   end
 

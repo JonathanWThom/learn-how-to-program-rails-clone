@@ -1,3 +1,10 @@
+<% content_for(:navbar) do %>
+  <li><%= link_to "Courses", courses_path %></li>
+  <li><%= link_to "Edit Week", edit_course_week_path(@week.course, @week) %></li>
+  <li><%= link_to "Delete Week", course_week_path(@week.course, @week),
+    :data => { :confirm => "You sure?", :method => "delete"} %></li>
+<% end %>
+
 <h1><%= @week.name %></h1>
 
 <% if @week.lessons.any? %>

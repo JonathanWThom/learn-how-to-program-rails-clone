@@ -1,3 +1,7 @@
+<%= content_for(:navbar) do %>
+  <li><%= link_to "Add A Course", new_course_path %></li>
+<% end %>
+
 <h1>LEARN HOW TO MUTHA FUCKIN PROGRAM</h1>
 
 <% if @courses.any? %>
