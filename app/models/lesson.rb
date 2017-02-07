@@ -1,5 +1,6 @@
 class Lesson < ActiveRecord::Base
   validates :name, :number, :content, :presence => true
+  belongs_to :week
 
   def self.lessonPrev(lessonNumber)
     prevLesson = lessonNumber - 1

@@ -4,6 +4,7 @@ describe Lesson do
   it { should validate_presence_of :number}
   it { should validate_presence_of :name}
   it { should validate_presence_of :content}
+  it { should belong_to :week }
 
   describe('.lessonPrev') do
     it ('returns the previous lesson') do
