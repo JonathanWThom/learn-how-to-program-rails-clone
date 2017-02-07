@@ -16,6 +16,7 @@ class LessonsController < ApplicationController
   def create
     @lesson = Lesson.create(lesson_params)
     if @lesson.save
+      flash[:notice] = "Lesson Succesfully Added"
       redirect_to lessons_path
     else
       render :new

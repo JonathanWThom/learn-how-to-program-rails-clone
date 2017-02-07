@@ -9,11 +9,23 @@
   </head>
 
   <body>
+
     <div class="container">
       <ul id="lesson-nav">
         <%= yield(:navbar) %>
       </ul>
     </div>
+
+    <% if flash[:notice] %>
+    <div class="container flash">
+      <div class="row">
+        <div class="col-sm-4">
+          <%= flash[:notice] %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
     <div class="container">
       <%= yield %>
     </div>
