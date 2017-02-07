@@ -1,5 +1,5 @@
 <% content_for(:navbar) do %>
-  <li><%= link_to "Lessons", week_lessons_path %></li>
+  <li><%= link_to "Lessons", course_week_path(@week.course, @week) %></li>
 <% end %>
 
 <h1>Add a Lesson</h1>

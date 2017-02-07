@@ -1,7 +1,4 @@
 class LessonsController < ApplicationController
-  def index
-    @lessons = Lesson.all
-  end
 
   def show
     @lesson = Lesson.find(params[:id])
@@ -19,13 +16,14 @@ class LessonsController < ApplicationController
     @lesson = @week.lessons.create(lesson_params)
     if @lesson.save
       flash[:notice] = "Lesson Succesfully Added"
-      redirect_to week_lessons_path(@week)
+      redirect_to course_week_path(@week.course, @week)
     else
       render :new
     end
   end
 
   def edit
+    @week = Week.find(params[:week_id])
     @lesson = Lesson.find(params[:id])
   end
 
@@ -44,7 +42,7 @@ class LessonsController < ApplicationController
     @week = Week.find(params[:week_id])
     @lesson = Lesson.find(params[:id])
     @lesson.destroy
-    redirect_to week_lessons_path(@week)
+    redirect_to course_week_path(@week.course, @week)
   end
 
 

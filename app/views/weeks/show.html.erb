@@ -3,6 +3,7 @@
   <li><%= link_to "Edit Week", edit_course_week_path(@week.course, @week) %></li>
   <li><%= link_to "Delete Week", course_week_path(@week.course, @week),
     :data => { :confirm => "You sure?", :method => "delete"} %></li>
+  <li><%= link_to "Add a Lesson", new_week_lesson_path(@week) %></li>
 <% end %>
 
 <h1><%= @week.name %></h1>

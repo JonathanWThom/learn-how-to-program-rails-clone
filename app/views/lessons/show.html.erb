@@ -15,4 +15,4 @@
 <h5><%= @lesson.content %></h5>
 
 
-<p><%= link_to "Return to Lessons", week_lessons_path %></p>
+<p><%= link_to "Return to Lessons", course_week_path(@lesson.week.course, @lesson.week) %></p>

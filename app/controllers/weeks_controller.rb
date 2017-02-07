@@ -36,6 +36,16 @@ class WeeksController < ApplicationController
     end
   end
 
+  def destroy
+    @course = Course.find(params[:course_id])
+    @week = Week.find(params[:id])
+    @week.lessons.each do |l|
+      l.destroy
+    end
+    @week.destroy
+    redirect_to course_path(@course)
+  end
+
 private
   def week_params
     params.require(:week).permit(:name)
