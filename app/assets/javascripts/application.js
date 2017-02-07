@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(document).ready(function(){
+  $('.tests').click(function(){
+    $('.weeks_lessons').show();
+  });
+});

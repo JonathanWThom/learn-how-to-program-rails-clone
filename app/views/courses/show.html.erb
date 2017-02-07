@@ -11,7 +11,16 @@
 <% if @course.weeks.any? %>
   <ul>
     <% @course.weeks.each do |w| %>
-    <li><%= link_to w.name, course_week_path(@course, w) %></li>
+    <li><%= link_to w.name, course_week_path(@course, w) %></li> <p class="tests">
+      <%= w.name %>
+    </p>
+      <% if w.lessons.any? %>
+        <ul class="weeks_lessons">
+          <% w.lessons.each do |l| %>
+          <li><%= link_to l.name, week_lesson_path(l.week, l)%></li>
+          <% end %>
+        </ul>
+      <% end %>
     <% end %>
   </ul>
 <% end %>
