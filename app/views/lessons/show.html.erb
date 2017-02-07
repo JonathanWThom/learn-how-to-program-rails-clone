@@ -1,13 +1,13 @@
 <% content_for(:navbar) do %>
-  <li><%= link_to "Courses", lessons_path %></li>
+  <li><%= link_to "Courses", courses_path %></li>
   <% if @previousLesson %>
-    <li><%= link_to "Previous", lesson_path(@previousLesson)%></li>
+    <li><%= link_to "Previous", week_lesson_path(@lesson.week, @previousLesson)%></li>
   <% end %>
   <% if @nextLesson %>
-    <li><%= link_to "Next", lesson_path(@nextLesson)%></li>
+    <li><%= link_to "Next", week_lesson_path(@lesson.week, @nextLesson)%></li>
   <% end %>
-  <li><%= link_to "Edit Lesson", edit_lesson_path(@lesson) %></li>
-  <li><%= link_to "Delete Lesson", lesson_path(@lesson),
+  <li><%= link_to "Edit Lesson", edit_week_lesson_path(@lesson.week, @lesson) %></li>
+  <li><%= link_to "Delete Lesson", week_lesson_path(@lesson.week, @lesson),
     :data => { :confirm => "You sure?", :method => "delete"} %></li>
 <% end %>
 <h1><%= @lesson.name %></h1>
@@ -15,4 +15,4 @@
 <h5><%= @lesson.content %></h5>
 
 
-<p><%= link_to "Return to Lessons", lessons_path %></p>
+<p><%= link_to "Return to Lessons", week_lessons_path %></p>

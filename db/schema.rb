@@ -39,3 +39,7 @@ ActiveRecord::Schema.define(version: 20170207183439) do
   end
 
 end
+
+Lesson.all.each do |lesson|
+  lesson.update(week_id: week.id)
+end
