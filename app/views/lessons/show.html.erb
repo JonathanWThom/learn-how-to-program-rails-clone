@@ -6,6 +6,9 @@
   <% if @nextLesson %>
     <li><%= link_to "Next", lesson_path(@nextLesson)%></li>
   <% end %>
+  <li><%= link_to "Edit Lesson", edit_lesson_path(@lesson) %></li>
+  <li><%= link_to "Delete Lesson", lesson_path(@lesson),
+    :data => { :confirm => "You sure?", :method => "delete"} %></li>
 <% end %>
 <h1><%= @lesson.name %></h1>
 

@@ -12,4 +12,6 @@ class Lesson < ActiveRecord::Base
     foundLesson = Lesson.where(number: nextLesson)
     return foundLesson[0]
   end
+
+
 end
