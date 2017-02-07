@@ -1,0 +1,9 @@
+<%= @course.name %>
+
+<% if @course.weeks.any? %>
+  <ul>
+    <% @course.weeks.each do |w| %>
+    <li><%= link_to w.name, week_path(w) %></li>
+    <% end %>
+  </ul>
+<% end %>

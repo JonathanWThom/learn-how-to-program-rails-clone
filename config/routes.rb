@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   end
 
   resources :courses do
-    resources :weeks
+    resources :weeks, :except => [:index]
   end
 
 end
