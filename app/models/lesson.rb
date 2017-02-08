@@ -2,16 +2,14 @@ class Lesson < ActiveRecord::Base
   validates :name, :number, :content, :presence => true
   belongs_to :week
 
-  def self.lessonPrev(lessonNumber)
-    prevLesson = lessonNumber - 1
-    foundLesson = Lesson.where(number: prevLesson)
-    return foundLesson[0]
+  def self.lessonPrev(lesson)
+    lessonIwant = Lesson.where(number: (lesson.number - 1), week_id: lesson.week_id)
+    return lessonIwant[0]
   end
 
-  def self.lessonNext(lessonNumber)
-    nextLesson = lessonNumber + 1
-    foundLesson = Lesson.where(number: nextLesson)
-    return foundLesson[0]
+  def self.lessonNext(lesson)
+    lessonIwant = Lesson.where(number: (lesson.number + 1), week_id: lesson.week_id)
+    return lessonIwant[0]
   end
 
 

@@ -8,21 +8,21 @@ describe Lesson do
 
   describe('.lessonPrev') do
     it ('returns the previous lesson') do
-      lesson1 = Lesson.new(name: "Lesson1", content: "Lorem Ipsum", number: 1)
-      lesson1.save
-      lesson2 = Lesson.new(name: "Lesson2", content: "Lorem Ipsum", number: 2)
-      lesson2.save
-      expect(Lesson.lessonPrev(lesson2.number)).to eq(lesson1)
+      course1 = Course.create(name: "Super noob")
+      week1 = course1.weeks.create(name: "week 1 damnit")
+      lesson1 = week1.lessons.create(name: "Lesson1", content: "Lorem Ipsum", number: 1, day_of_week: 'Monday')
+      lesson2 = week1.lessons.create(name: "Lesson2", content: "Lorem Ipsum", number: 2, day_of_week: 'Monday')
+      expect(Lesson.lessonPrev(lesson2)).to eq(lesson1)
     end
   end
 
   describe('.lessonNext') do
     it ('returns the previous lesson') do
-      lesson1 = Lesson.new(name: "Lesson1", content: "Lorem Ipsum", number: 1)
-      lesson1.save
-      lesson2 = Lesson.new(name: "Lesson2", content: "Lorem Ipsum", number: 2)
-      lesson2.save
-      expect(Lesson.lessonNext(lesson1.number)).to eq(lesson2)
+      course1 = Course.create(name: "Super noob")
+      week1 = course1.weeks.create(name: "week 1 damnit")
+      lesson1 = week1.lessons.create(name: "Lesson1", content: "Lorem Ipsum", number: 1, day_of_week: 'Monday')
+      lesson2 = week1.lessons.create(name: "Lesson2", content: "Lorem Ipsum", number: 2, day_of_week: 'Monday')
+      expect(Lesson.lessonNext(lesson1)).to eq(lesson2)
     end
   end
 end

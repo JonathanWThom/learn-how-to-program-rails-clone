@@ -1,13 +1,15 @@
 require 'rails_helper'
 
-describe 'the add a lesson process' do
-  it 'adds a new lesson' do
-    visit lessons_path
-    click_link 'Add A Lesson'
-    fill_in 'Name', :with => 'Lesson1'
-    fill_in 'Content', :with => 'Lorem Ipsum'
-    fill_in 'Number', :with => 3
+describe 'the add a lesson path' do
+  it 'will add a lesson' do
+    course = Course.create(name: 'Rails')
+    week = course.weeks.create(name: 'Rails Basics')
+    visit course_week_path(course, week)
+    click_link 'Add a Lesson'
+    fill_in 'Name', :with => 'Make a rails app'
+    fill_in 'Content', :with => 'Lorum Butts Ipsum Such'
+    fill_in 'Number', :with => 1
     click_on 'Create Lesson'
-    expect(page).to have_content('Lesson1')
+    expect(page).to have_content('Make a rails app')
   end
 end
