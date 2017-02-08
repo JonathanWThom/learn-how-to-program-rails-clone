@@ -10,6 +10,15 @@ describe ('the edit course process') do
     expect(page).to have_content('Ruby')
   end
 
+  it 'will edit a course unsuccessfully' do
+    course = Course.create(name: 'Rails')
+    visit course_path(course)
+    click_link 'Edit'
+    fill_in 'Name', :with => ''
+    click_on 'Update Course'
+    expect(page).to have_content('Nice try ding dong. try again')
+  end
+
   it 'will delete a course' do
     course = Course.create(name: 'Rails')
     visit course_path(course)

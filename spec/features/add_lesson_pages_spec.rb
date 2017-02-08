@@ -12,4 +12,16 @@ describe 'the add a lesson path' do
     click_on 'Create Lesson'
     expect(page).to have_content('Make a rails app')
   end
+
+  it 'will add a lesson unsuccessfully' do
+    course = Course.create(name: 'Rails')
+    week = course.weeks.create(name: 'Rails Basics')
+    visit course_week_path(course, week)
+    click_link 'Add a Lesson'
+    fill_in 'Name', :with => ''
+    fill_in 'Content', :with => 'Lorum Butts Ipsum Such'
+    fill_in 'Number', :with => 1
+    click_on 'Create Lesson'
+    expect(page).to have_content('Add a Lesson')
+  end
 end
